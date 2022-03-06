@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        body {
+            /* background-image: url("background2.jpg"); */
+            background: linear-gradient(to right, #74ebd5, #acb6e5);
+            height: 100vh;
+            width: 100%;
+            background-repeat: no-repeat;
+            background-size: 100%;
+            position: relative;
+            }
+        .container-momomo{
+       
+            height: 90%;
+            width: 100%;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-template-rows: repeat(3, 1fr);
+            gap: 20px 0px;
+            justify-items: center;
+
+        }
+        .center-g{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .item-cart {
+         
+            width: 250px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            align-items: center;
+            padding: 10px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-between;
+            box-shadow: 0px 3px 8px  rgba(4,171,186,1);
+            padding: 40px;
+            border-radius: 15px;
+            width: 300px;
+      
+            transition: all 0.6s;
+        }
+        .options-container{
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+       
+        .item-cart:hover {
+            box-shadow: 0px 7px 10px  rgba(4,171,186,1);
+            transform: scale(1.05);
+        }
+
+    </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Cart</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-2">
+        <a class="navbar-brand" style="color: rgb(255, 255, 255)" href="home">Networkers Store</a>
+        <a class="navbar-brand" style="color: rgb(255, 255, 255)"> Cart  </a>
+        <%if (typeof tot !== 'undefined') {%>
+            <a class="navbar-brand" style="color: rgb(255, 255, 255)"> <%= "Total: " + tot %>  </a>
+        <%}%>
+  
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+            </ul>
+            <form method="POST" action='/search' class="form-inline my-2 my-lg-0">
+                <input class="form-control mr-sm-2" name="Search" type="search" placeholder="Search"
+                    aria-label="Search">
+                <button class="btn btn-outline-light my-2 my-sm-0" type="submit">Search</button>
+            </form>
+        </div>
+    </nav>
+
+    <div class="container-momomo">
+    <%if (typeof tot !== 'undefined' && typeof items !== 'undefined') {%>
+
+    <% for(var i = 0; i < items.length ; i++) { %>
+        <div class="item-cart" >
+
+           
+                <div>
+                    <a href = <%= "/" + items[i].item.toLowerCase() %> >
+                        <img src= <%= items[i].item.toLowerCase() + ".jpg" %> width="173" height="230">
+                    </a>
+                </div>
+                <div>
+                    <p class="price"> <%= "price: " + items[i].price %> </p>
+                </div>
+                <div class="options-container">
+                    <div>
+                        <form method="POST" action= <%= '/remove' + items[i].item %> class = "sub">
+                            <button type="submit"  class="btn btn-secondary ml-3">Remove</button>
+                        </form>
+                    </div>
+                    <div style="margin-left: 10px;">
+                        <small> <%= "x"  + items[i].count %> </small>
+                    </div>
+                    
+
+                </div>
+          
+              
+        </div>
+    <%}%>
+
+
+    <%}%>
+    </div>
+
+
+
+</body>
+</html>

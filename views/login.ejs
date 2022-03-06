@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+          body {
+            /* background-image: url("background2.jpg"); */
+            background: linear-gradient(to right, #74ebd5, #acb6e5);
+            height: 100vh;
+            width: 100%;
+            background-repeat: no-repeat;
+            background-size: 100%;
+            position: relative;
+            }
+        .container-mo{
+            position:absolute;
+            left: 50%;
+            top:50%;
+            transform:translate(-50%,-50%);
+            height: 400px;
+            width: 600px;
+            display:flex;
+            flex-direction: column;
+         
+     
+        }
+
+        .form-container{
+            display: flex;
+            justify-content: space-between;
+            padding-left: 15px;
+            padding-top:15px;
+            height: 300px;
+            width: 100%;
+            box-shadow: 0px 3px 8px  rgba(4,171,186,1);
+            background:transparent;
+            background: rgba(4, 4, 4, 0.185);
+            border-radius: 10px;
+        }
+        .txtInput{
+            border: none;
+            border-radius: 10px;
+            height:33px;
+            padding: 5px; 
+            margin: 10px;
+        }
+        .leftPart  {
+     
+            height: 100%;
+            width: 100%;
+            position: relative;
+
+        }   
+    </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Welcome</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-2">
+        <a class="navbar-brand" style="color: rgb(255, 255, 255)">Networkers Store</a>
+     
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+            </ul>
+            <a class="btn btn-outline-light my-2 my-sm-0" href="registration">Register</a>
+        </div>
+    </nav>
+
+
+    <div class="container-mo">
+
+        
+
+            <form  method="POST" class="form-container">
+                
+                <div class="leftPart">
+                    <h1 style="color:white; ">Welcome, Please Login</h1>
+                    <div style="position:absolute;  bottom: 15px;">
+                        <a href="registration">I dont have an account</a>
+                    </div>
+                    
+                </div>
+                <div style="display:flex; flex-direction: column; justify-content: center; margin-right: 20px; margin-left: 20px">
+                   
+                    <input placeholder="Username" type="text" name="username" class="txtInput"> <br>      
+                    <input placeholder="Password" type="password"  name="password" class="txtInput"> <br> <br>
+                    <input  class="btn btn-primary" type="submit" id="simple_click" class="btn btn-secondary"  value="Login"> <br>
+                    <p class = "center"><%= wrong %></p>
+                </div>
+                <div>
+                    
+                </div>
+            
+            </form>
+
+            <br>
+           
+       
+
+
+    </div>
+   
+</body>
+</html>
